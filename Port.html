@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="port.css">
+    <link rel="stylesheet" href="C:\Users\Krish\OneDrive\Desktop\bootstrap-5.0.2-dist\css\bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body>
+        <div class="main">
+          <div class="head"><h2 class="txt">Priyanshi Jha</h2> </div>
+               <div class="con"> <ul>
+                    <li><a href="#home">Home</li></a>
+                    <li><a href="#about">About</li></a>
+                    <li><a href="#skill">Skill</li></a>
+                    <li><a href="#project">Project</li></a>
+                    <li><a href="#resume">Resume</li></a>
+                    <li><a href="#contact">Contact</li></a></div>
+                </ul>
+    </div>
+    <h3>About Me</h3>
+<div class="about" id="about">
+    <div class="intro">
+            <p>Hello!I'm Priyanshi Jha,a 3rd-year B.Sc.(Information Technology)student.I have a passion for technology and enjoy creating websites and solving problems through programming.</p>
+        <p>I love learning new things and improving my skills to build useful and creative projects.Let's connect and work on something amazing together!</p>
+    </div>
+    <div class="img"> <img src="C:\Users\Krish\OneDrive\Desktop\resturant\P.jpg" alt="" class="img"> </div>
+</div>
+<section id="skill" class="container mt-5">
+  <h2 class="text-center mb-4" id="skill">Skills</h2>
+  <div class="row">
+    <div class="col-md-6 mb-3">
+      <label>HTML</label>
+      <div class="progress">
+        <div class="progress-bar bg-success" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">90%</div>
+      </div>
+    </div>
+    <div class="col-md-6 mb-3">
+      <label>CSS</label>
+      <div class="progress">
+        <div class="progress-bar bg-info" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">70%</div>
+      </div>
+    </div>
+    <div class="col-md-6 mb-3">
+      <label>JavaScript</label>
+      <div class="progress">
+        <div class="progress-bar bg-warning" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">60%</div>
+      </div>
+    </div>
+    <div class="col-md-6 mb-3">
+      <label>SQL</label>
+      <div class="progress">
+        <div class="progress-bar bg-primary" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">85%</div>
+      </div>
+    </div>
+    <div class="col-md-6 mb-3">
+      <label>PL/SQL</label>
+      <div class="progress">
+        <div class="progress-bar bg-danger" role="progressbar" style="width: 65%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">65%</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<h3>Projects</h3>
+<section class="project-section">
+    <div class="project">
+        <img src="A.jpeg" alt="Project 1" width="100%" height="90%">
+            <h4> Resturant</h4>
+            <a href="index.html">View Details</a>
+    </div>
+    <div class="project">
+        <img src="c.png" alt="Project 2" width="100%" height="90%">
+            <h4>College</h4>
+            <a href="college.html">View Details</a>
+    </div>
+    <div class="project" id="project">
+        <img src="t.png" alt="Project 2" width="100%" height="90%">
+            <h4>Time-table</h4>
+            <a href="time.html">View Details</a>
+    </div>
+</section>
+<h3>Resume</h3>
+<section id="resume">
+    <p>Click the button below to download my CV.</p>
+    <button id="downloadCVBtn" class="download-btn">Download CV</button>
+  </section>
+  <section class="bg-light py-5">
+    <div class="container">
+      <h2 class="text-center mb-4" id="contact">Contact Me</h2>
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <ul class="list-group list-group-flush">
+            <!-- Phone -->
+            <li class="list-group-item d-flex align-items-center">
+              <i class="bi bi-telephone-fill me-3 text-primary"></i>
+              <span><strong>Phone:</strong> +91 12345 67890</span>
+            </li>
+            <!-- LinkedIn -->
+            <li class="list-group-item d-flex align-items-center">
+              <i class="bi bi-linkedin me-3 text-info"></i>
+              <span>
+                <strong>LinkedIn:</strong>
+                <a href="https://www.linkedin.com/in/your-profile" target="_blank">linkedin.com/in/your-profile</a>
+              </span>
+            </li>
+            <!-- Email -->
+            <li class="list-group-item d-flex align-items-center">
+              <i class="bi bi-envelope-fill me-3 text-danger"></i>
+              <span><strong>Email:</strong> yourname@example.com</span>
+            </li>
+            <!-- Location -->
+            <li class="list-group-item d-flex align-items-center">
+              <i class="bi bi-geo-alt-fill me-3 text-success"></i>
+              <span><strong>Location:</strong> Mumbai, India</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <footer>&copy; Priyanshi Jha [2025]
+    </footer>
+
+  <script type="text/javascript" charset="utf-8">
+    document.getElementById('downloadCVBtn').addEventListener('click', function () {
+    const link = document.createElement('a');
+    link.href = 'cv.pdf'; // Replace with your CV file's path or URL
+    link.download = 'cv.pdf'; // Replace with the desired file name
+    link.click();
+  });
+  
+  </script>
+</div>
+</body>
+</html>
