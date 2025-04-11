@@ -1,0 +1,105 @@
+{% extends 'resume/base.html' %}
+{% block title %}Resume Details{% endblock %}
+
+{% block content %}
+<!-- Dashboard Navigation -->
+        <div class="nav nav-pills flex-column flex-sm-row mb-4">
+            {% if resume %}
+  <a class="flex-sm-fill text-sm-center nav-link" href="{{ resume.get_absolute_url }}">
+    <i class="bi bi-person-lines-fill"></i> View Resume
+  </a>
+{% endif %}
+
+            <a class="flex-sm-fill text-sm-center nav-link" href="{% url 'add_education' %}">
+                <i class="bi bi-book"></i> Education
+            </a>
+            <a class="flex-sm-fill text-sm-center nav-link" href="{% url 'add_experience' %}">
+                <i class="bi bi-briefcase"></i> Experience
+            </a>
+            <a class="flex-sm-fill text-sm-center nav-link" href="{% url 'add_skill' %}">
+                <i class="bi bi-lightbulb"></i> Skills
+            </a>
+            <a class="flex-sm-fill text-sm-center nav-link" href="{% url 'add_project' %}">
+                <i class="bi bi-kanban"></i> Projects
+            </a>
+            <a class="flex-sm-fill text-sm-center nav-link" href="{% url 'download_resume_pdf' %}">
+                <i class="bi bi-download"></i> Download PDF
+            </a>
+        </div>
+<div class="container py-5">
+    <div class="card shadow-lg border-0 rounded-4">
+        <div class="card-body p-4 bg-white">
+            <div class="text-center mb-4">
+                {% if resume.profile_image %}
+                    <img src="{{ resume.profile_image.url }}" class="rounded-circle shadow-sm" width="120" height="120" style="object-fit: cover;">
+                {% endif %}
+                <h2 class="mt-3 fw-bold text-primary">{{ resume.full_name }}</h2>
+                <p class="mb-1 text-muted">{{ resume.email }}</p>
+                <p class="mb-3 text-muted">{{ resume.phone }} | {{ resume.address }}</p>
+                <a href="{% url 'download_resume_pdf' %}" class="btn btn-purple">Download PDF</a>
+            </div>
+
+            <hr class="my-4">
+
+            {% if education_list %}
+            <h4 class="text-primary">🎓 Education</h4>
+            <ul class="list-group list-group-flush mb-4">
+                {% for edu in education_list %}
+                    <li class="list-group-item bg-light rounded shadow-sm mb-2">
+                        <strong>{{ edu.degree }}</strong> - {{ edu.institution }} ({{ edu.year }})
+                    </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+
+            {% if experience_list %}
+            <h4 class="text-primary">💼 Experience</h4>
+            <ul class="list-group list-group-flush mb-4">
+                {% for exp in experience_list %}
+                    <li class="list-group-item bg-light rounded shadow-sm mb-2">
+                        <strong>{{ exp.job_title }}</strong> - {{ exp.company }} ({{ exp.year }})
+                        <p class="mb-0 small mt-1">{{ exp.description }}</p>
+                    </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+
+            {% if projects %}
+            <h4 class="text-primary">💡 Projects</h4>
+            <ul class="list-group list-group-flush mb-4">
+                {% for proj in projects %}
+                    <li class="list-group-item bg-light rounded shadow-sm mb-2">
+                        <strong>{{ proj.title }}</strong>
+                        <p class="mb-0 small mt-1">{{ proj.description }}</p>
+                    </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+
+            {% if skills %}
+            <h4 class="text-primary">🧠 Skills</h4>
+            <div class="d-flex flex-wrap gap-2">
+                {% for skill in skills %}
+                    <span class="badge bg-primary-subtle text-dark rounded-pill px-3 py-2 shadow-sm">{{ skill.name }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<style>
+    .btn-purple {
+        background-color: #6c63ff;
+        color: #fff;
+        font-weight: 600;
+        padding: 10px 20px;
+        border-radius: 8px;
+        transition: 0.3s ease-in-out;
+    }
+    .btn-purple:hover {
+        background-color: #5a54d1;
+        box-shadow: 0 4px 12px rgba(108, 99, 255, 0.3);
+    }
+</style>
+{% endblock %}

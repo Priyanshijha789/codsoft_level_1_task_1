@@ -1,0 +1,21 @@
+<h2 style="text-align:center;">{{ user.first_name }} {{ user.last_name }}</h2>
+<p>Email: {{ user.email }}</p>
+<hr>
+
+<h3>Education</h3>
+{% for edu in education_list %}
+    <p><strong>{{ edu.degree }}</strong> from {{ edu.institution }} ({{ edu.year }})</p>
+{% endfor %}
+
+<h3>Experience</h3>
+{% for exp in experience_list %}
+    <p><strong>{{ exp.position }}</strong> at {{ exp.company }} ({{ exp.start_year }} - {{ exp.end_year|default:"Present" }})</p>
+{% endfor %}
+
+<h3>Skills</h3>
+<p>{% for skill in skills %} {{ skill.name }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
+
+<h3>Projects</h3>
+{% for project in projects %}
+    <p><strong>{{ project.title }}</strong><br>{{ project.description }}</p>
+{% endfor %}

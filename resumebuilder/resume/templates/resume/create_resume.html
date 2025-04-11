@@ -1,0 +1,79 @@
+{% extends 'resume/base.html' %}
+{% block title %}Create Resume{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow rounded-4 border-0">
+                <div class="card-header bg-primary text-white rounded-top-4">
+                    <h4 class="mb-0">Create or Update Your Resume</h4>
+                </div>
+                <div class="card-body p-4 bg-light">
+                    <form method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
+                        {% csrf_token %}
+                        {% for field in form %}
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">{{ field.label_tag }}</label>
+                                {{ field }}
+                                {% if field.errors %}
+                                    <div class="text-danger small">{{ field.errors }}</div>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+
+                        <!-- Job Profile / Career Objective -->
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Job Profile / Career Objective</label>
+                            <textarea name="job_profile" class="form-control" rows="4" placeholder="Write a brief summary about your career goals...">{{ resume.job_profile }}</textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-purple w-100">Save Resume</button>
+                    </form>
+
+                    <!-- Add More Sections -->
+                    <hr class="my-4">
+
+                    <div class="text-center">
+                        <h5 class="mb-3">Add More Resume Details</h5>
+                        <div class="d-flex flex-wrap justify-content-center gap-3">
+                            <a href="{% url 'add_education' %}" class="btn btn-outline-primary rounded-pill shadow-sm">
+                                <i class="bi bi-book"></i> Add Education
+                            </a>
+
+                            <a href="{% url 'add_experience' %}" class="btn btn-outline-secondary rounded-pill shadow-sm">
+                                <i class="bi bi-briefcase"></i> Add Experience
+                            </a>
+
+                            <a href="{% url 'add_project' %}" class="btn btn-outline-success rounded-pill shadow-sm">
+                                <i class="bi bi-code-slash"></i> Add Project
+                            </a>
+
+                            <a href="{% url 'add_skill' %}" class="btn btn-outline-info rounded-pill shadow-sm">
+                                <i class="bi bi-tools"></i> Add Skill
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Custom Styling -->
+<style>
+    .btn-purple {
+        background-color: #6c63ff;
+        color: #fff;
+        font-weight: 600;
+        padding: 10px 20px;
+        border-radius: 8px;
+        transition: 0.3s ease-in-out;
+    }
+    .btn-purple:hover {
+        background-color: #5a54d1;
+        box-shadow: 0 4px 12px rgba(108, 99, 255, 0.3);
+    }
+</style>
+{% endblock %}
